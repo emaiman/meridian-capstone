@@ -1,6 +1,6 @@
 ---
 type: synthesis
-sources: [client-brief, icsc-new-grocery-formats]
+sources: [client-brief, icsc-new-grocery-formats, safegraph-site-selection-checklist, jll-grocery-report-2025]
 updated: 2026-09-20
 confidence: low
 ---
@@ -17,3 +17,5 @@ What we are currently assuming, the evidence for it, and how to test it. Each as
 | A4 | Past openings followed lease availability rather than analysis. | Growth came "mostly by taking over leases" ([[client-brief]]). | Ask how sites were chosen previously ([[open-questions]] #2, #8). | Untested |
 | A6 | Market conditions favor specialty grocers, so store performance differences are more likely about location and execution than the format. | Specialty grocers such as Trader Joe's are outperforming traditional grocers ([[icsc-new-grocery-formats]]). This is one article about national trends, not Meridian's own data. | Ask Dana what she sees as the causes of uneven performance ([[open-questions]] #5). | Untested |
 | A5 | Weekly store sales totals and store attributes will be enough for a first board preview. | These are the data types the brief says are fine to use with AI tools ([[client-brief]]). | Ask what the board needs ([[open-questions]] #4). | Untested |
+| A7 | Meridian's own 14 stores can serve as the benchmark for judging Pasadena, if store-level sales by week and store attributes are enough to find what its best stores have in common. | The article recommends starting from existing stores and best performers ([[safegraph-site-selection-checklist]]); the brief lists store attributes and three years of sales ([[client-brief]]). The article's examples come from a data vendor and are not verified. | Ask what data exists by store and week, and how many stores Dana considers high performers ([[open-questions]] #5, #12). | Untested |
+| A8 | Available sites, not analysis, may be the tighter constraint on where Meridian can open next. | JLL reports record-low grocery-anchored vacancy, minimal new supply, and rents rising faster than any other retail type ([[jll-grocery-report-2025]]); 2024 national figures, not specific to Pasadena. Meridian's growth came mostly from taking over leases ([[client-brief]]). | Ask how sites have been sourced and whether Pasadena is a specific available lease ([[open-questions]] #9, #14). | Untested |

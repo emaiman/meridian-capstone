@@ -1,6 +1,6 @@
 ---
 type: synthesis
-sources: [client-brief, icsc-new-grocery-formats]
+sources: [client-brief, icsc-new-grocery-formats, safegraph-site-selection-checklist, jll-grocery-report-2025]
 updated: 2026-09-20
 confidence: medium
 ---
@@ -22,3 +22,6 @@ Gaps and ambiguities in the brief, ranked by how much they change the work. Thes
 | 9 | How do lease terms limit or shape where Meridian can open? | Lease terms are in the store attributes; the brief doesn't say how they constrain the choice. | [[client-brief]] |
 | 10 | Is the loyalty analysis part of this engagement or a later one? | The brief mentions it as a wish, not as a requirement. | [[client-brief]] |
 | 11 | Who does Meridian compete with around Pasadena, and are those competitors expanding? | Southern California has active specialty and value grocers, and investors are buying grocery-anchored centers there. The brief names no competitors. | [[icsc-new-grocery-formats]] |
+| 12 | How does Meridian define a store's trade area, and how far do its customers travel? Do any existing stores overlap or share customers with Pasadena? | The SafeGraph article says grocery trips are mostly within a few miles of home and that cannibalization is a major grocery risk. Answers set how the team tests Pasadena. | [[safegraph-site-selection-checklist]] |
+| 13 | Did Meridian track earlier openings against forecasts (for example at 90 days and 12 months)? | It would show what "took off immediately" vs. "slower" looked like and gives a calibration point for any forecast. | [[safegraph-site-selection-checklist]], [[client-brief]] |
+| 14 | How does Meridian find available sites, and how much has lease competition or rent growth affected its options? Is Pasadena an actual available lease or just a preferred area? | JLL reports record-low grocery-anchored vacancy, minimal new supply, and rising rents. If sites are scarce, availability may drive the choice more than analysis. | [[jll-grocery-report-2025]], [[client-brief]] |
