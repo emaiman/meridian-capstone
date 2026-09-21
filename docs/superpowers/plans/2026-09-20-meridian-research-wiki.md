@@ -31,6 +31,20 @@
 | Who adds sources | You find and add them to `raw/`; Claude only ingests (changed 2026-09-20 from "Claude proposes, you approve") |
 | Commits | Per task, you approve each |
 
+## Progress (updated 2026-09-20)
+
+| Task | Status |
+|---|---|
+| 1. Foundation and schema | Complete (`b0d32ac`) |
+| 2. Ingest the client brief | Complete (`342cd73`) |
+| 3. You add the public sources | Complete (revised approach) |
+| 4. Ingest the public sources you added | In progress (3 sources ingested) |
+| 5. Concept pages and synthesis | Not started |
+| 6. Interview guide | Not started |
+| 7. Lint and readiness check | Not started |
+
+Outside the plan: a `gelsons` entity page was filed from a query on where specialty grocers are opening (logged as a `query` entry). `raw/client-brief.md` is gitignored and stays local only.
+
 ## File structure
 
 | Path | Responsibility |
@@ -50,6 +64,8 @@
 
 ### Task 1: Foundation and schema
 
+**Status:** Complete. Committed as `b0d32ac`.
+
 **Files:**
 - Create: `CLAUDE.md`, `wiki/index.md`, `wiki/log.md`, and empty folders `wiki/sources/`, `wiki/entities/`, `wiki/concepts/`, `wiki/synthesis/` (each with a `.gitkeep`)
 - Existing, to be committed: `raw/client-brief.md`, `data-handling-checklist.md`, the spec, and this plan
@@ -57,14 +73,14 @@
 **Interfaces:**
 - Produces: the conventions every later task follows (page templates, workflows, data gate). Later tasks read `CLAUDE.md` first.
 
-- [ ] **Step 1: Create the folder skeleton**
+- [x] **Step 1: Create the folder skeleton**
 
 ```bash
 mkdir -p wiki/sources wiki/entities wiki/concepts wiki/synthesis
 touch wiki/sources/.gitkeep wiki/entities/.gitkeep wiki/concepts/.gitkeep wiki/synthesis/.gitkeep
 ```
 
-- [ ] **Step 2: Write `CLAUDE.md`** with exactly this content:
+- [x] **Step 2: Write `CLAUDE.md`** with exactly this content:
 
 ````markdown
 # Meridian research wiki: schema
@@ -126,7 +142,7 @@ Report (and fix once the user approves): contradictions, stale claims, orphan pa
 `wiki/synthesis/interview-guide.md` entries have: the question, why it matters (the decision it informs), supporting evidence (links), and priority (must ask | should ask | if time). Order so the must-asks fit a short session.
 ````
 
-- [ ] **Step 3: Write `wiki/index.md`**
+- [x] **Step 3: Write `wiki/index.md`**
 
 ```markdown
 # Wiki index
@@ -146,7 +162,7 @@ _none yet_
 _none yet_
 ```
 
-- [ ] **Step 4: Write `wiki/log.md`**
+- [x] **Step 4: Write `wiki/log.md`**
 
 ```markdown
 # Log
@@ -156,12 +172,12 @@ Append-only. Format: `## [YYYY-MM-DD] ingest | query | lint | <title>`
 ## [2026-09-20] setup | Wiki skeleton and CLAUDE.md schema created
 ```
 
-- [ ] **Step 5: Verify**
+- [x] **Step 5: Verify**
 
 Run: `ls wiki wiki/synthesis && head -3 CLAUDE.md`
 Expected: the four folders plus `index.md` and `log.md` are listed; `CLAUDE.md` starts with `# Meridian research wiki: schema`.
 
-- [ ] **Step 6: Propose the commit** (wait for your yes)
+- [x] **Step 6: Propose the commit** (wait for your yes)
 
 ```bash
 git add CLAUDE.md wiki raw data-handling-checklist.md docs
@@ -176,6 +192,8 @@ git commit -m "docs: add wiki skeleton, schema, checklist, spec, and plan"
 
 ### Task 2: Ingest the client brief
 
+**Status:** Complete. Committed as `342cd73`.
+
 **Files:**
 - Create: `wiki/sources/client-brief.md`, `wiki/entities/meridian-markets.md`, `wiki/entities/dana-okafor.md`, `wiki/entities/marcus-it.md`, `wiki/entities/pasadena.md`, `wiki/synthesis/open-questions.md`, `wiki/synthesis/assumptions.md`
 - Modify: `wiki/index.md`, `wiki/log.md`
@@ -184,13 +202,13 @@ git commit -m "docs: add wiki skeleton, schema, checklist, spec, and plan"
 - Consumes: the ingest workflow and page conventions in `CLAUDE.md`; `raw/client-brief.md`.
 - Produces: page names `client-brief`, `meridian-markets`, `dana-okafor`, `marcus-it`, `pasadena`, `open-questions`, `assumptions`, which later tasks link to.
 
-- [ ] **Step 1: Run the data gate.** Record in the source page: `tier: Allowed`, `raw_file: raw/client-brief.md`. Reason: the brief contains no customer or employee data.
-- [ ] **Step 2: Write `wiki/sources/client-brief.md`.** Summarize: company facts (14 stores, about $78M revenue, about 620 employees, LA/Orange/Ventura counties), the ask (dashboard of sales by store and category to decide the next location; Pasadena is the assumed site), the loyalty ambition (about 40,000 members, unused), available data (POS about three years, loyalty, labor, store attributes), the POS migration last spring, the AI-tool restriction, the eight-week timeline with a board preview in three weeks, and Dana's availability (travels Tuesdays and Wednesdays, slow to reply).
-- [ ] **Step 3: Write the four entity pages.** Each has frontmatter and cites `[[client-brief]]`. `meridian-markets`: profile and growth from 6 to 14 stores in 5 years via lease takeovers. `dana-okafor`: role, contact preferences, what she has asked for. `marcus-it`: IT contact who pulls the extract after the NDA. `pasadena`: the assumed next site, marked `confidence: low` because the brief gives no data on it.
-- [ ] **Step 4: Write `wiki/synthesis/open-questions.md`.** A ranked table with columns: rank, question, why it matters, source. Seed at least these from the brief: what "success" means beyond "increase revenue, reduce costs, improve experience"; why Pasadena is "obvious" and what alternatives were considered; what caused uneven store performance; how the POS migration affects data continuity across the three years; whether aggregates of loyalty data can be shared with the team's AI tools; what the board expects to see in three weeks; who decides the expansion; what a store's lease terms constrain.
-- [ ] **Step 5: Write `wiki/synthesis/assumptions.md`.** A table with columns: assumption, evidence, how to test (interview question or other), status. Seed: Pasadena is the frontrunner because of instinct, not data; "performance" means sales, not margin; the POS migration is a data break; prior openings followed lease availability rather than analysis.
-- [ ] **Step 6: Update `wiki/index.md` and `wiki/log.md`.** Add every new page with a one-line summary; log `## [2026-09-20] ingest | Client brief (tier: Allowed)`.
-- [ ] **Step 7: Verify**
+- [x] **Step 1: Run the data gate.** Record in the source page: `tier: Allowed`, `raw_file: raw/client-brief.md`. Reason: the brief contains no customer or employee data.
+- [x] **Step 2: Write `wiki/sources/client-brief.md`.** Summarize: company facts (14 stores, about $78M revenue, about 620 employees, LA/Orange/Ventura counties), the ask (dashboard of sales by store and category to decide the next location; Pasadena is the assumed site), the loyalty ambition (about 40,000 members, unused), available data (POS about three years, loyalty, labor, store attributes), the POS migration last spring, the AI-tool restriction, the eight-week timeline with a board preview in three weeks, and Dana's availability (travels Tuesdays and Wednesdays, slow to reply).
+- [x] **Step 3: Write the four entity pages.** Each has frontmatter and cites `[[client-brief]]`. `meridian-markets`: profile and growth from 6 to 14 stores in 5 years via lease takeovers. `dana-okafor`: role, contact preferences, what she has asked for. `marcus-it`: IT contact who pulls the extract after the NDA. `pasadena`: the assumed next site, marked `confidence: low` because the brief gives no data on it.
+- [x] **Step 4: Write `wiki/synthesis/open-questions.md`.** A ranked table with columns: rank, question, why it matters, source. Seed at least these from the brief: what "success" means beyond "increase revenue, reduce costs, improve experience"; why Pasadena is "obvious" and what alternatives were considered; what caused uneven store performance; how the POS migration affects data continuity across the three years; whether aggregates of loyalty data can be shared with the team's AI tools; what the board expects to see in three weeks; who decides the expansion; what a store's lease terms constrain.
+- [x] **Step 5: Write `wiki/synthesis/assumptions.md`.** A table with columns: assumption, evidence, how to test (interview question or other), status. Seed: Pasadena is the frontrunner because of instinct, not data; "performance" means sales, not margin; the POS migration is a data break; prior openings followed lease availability rather than analysis.
+- [x] **Step 6: Update `wiki/index.md` and `wiki/log.md`.** Add every new page with a one-line summary; log `## [2026-09-20] ingest | Client brief (tier: Allowed)`.
+- [x] **Step 7: Verify**
 
 ```bash
 for f in $(find wiki -name '*.md' ! -name index.md ! -name log.md); do n=$(basename "$f" .md); grep -q "\[\[$n\]\]" wiki/index.md || echo "NOT IN INDEX: $f"; done
@@ -199,7 +217,7 @@ grep -rEL "^type:" wiki/sources wiki/entities wiki/synthesis --include=*.md
 
 Expected: no output from either command.
 
-- [ ] **Step 8: Propose the commit** (wait for your yes): `git add wiki && git commit -m "wiki: ingest client brief and seed entities and open questions"`
+- [x] **Step 8: Propose the commit** (wait for your yes): `git add wiki && git commit -m "wiki: ingest client brief and seed entities and open questions"`
 
 **Done looks like:** the brief is fully represented as a source page, four entity pages, a ranked open-questions page, and an assumptions page, all indexed and logged, with claims cited to `[[client-brief]]`.
 
@@ -209,6 +227,8 @@ Expected: no output from either command.
 
 ### Task 3: You add the public sources
 
+**Status:** Complete (revised approach). You supplied sources as URLs; Claude fetched each, saved an extract to `raw/`, and confirmed the tier before ingesting.
+
 **Files:**
 - Create (by you): `raw/<slug>.md` for each source you choose
 - Modify: `wiki/log.md`
@@ -216,9 +236,9 @@ Expected: no output from either command.
 **Interfaces:**
 - Produces: the source files that Task 4 ingests.
 
-- [ ] **Step 1: You add sources to `raw/`.** One markdown file per source, with the URL, publisher, and retrieval date at the top, plus the article text (if free to copy for personal study) or your own notes. Do not save paywalled text you don't have rights to; save the URL and your notes instead. Cover the three topics: store site selection, specialty grocery market, retail performance metrics.
-- [ ] **Step 2: You tell Claude which files are ready.** Claude lists what is in `raw/` and confirms each file is Allowed tier (public, or team notes with no client data) before reading it.
-- [ ] **Step 3: Log it.** Claude appends `## [date] query | Sources added by user` to `wiki/log.md`.
+- [x] **Step 1: You add sources to `raw/`.** One markdown file per source, with the URL, publisher, and retrieval date at the top, plus the article text (if free to copy for personal study) or your own notes. Do not save paywalled text you don't have rights to; save the URL and your notes instead. Cover the three topics: store site selection, specialty grocery market, retail performance metrics.
+- [x] **Step 2: You tell Claude which files are ready.** Claude lists what is in `raw/` and confirms each file is Allowed tier (public, or team notes with no client data) before reading it.
+- [x] **Step 3: Log it.** Claude appends `## [date] query | Sources added by user` to `wiki/log.md`. (Done as one `ingest` log entry per source instead of a separate "Sources added" entry.)
 
 **Done looks like:** `raw/` contains the client brief plus the sources you chose, each with its origin recorded, and Claude has confirmed the tier of each.
 
@@ -227,6 +247,8 @@ Expected: no output from either command.
 ---
 
 ### Task 4: Ingest the public sources you added
+
+**Status:** In progress. Three sources ingested: `icsc-new-grocery-formats`, `safegraph-site-selection-checklist`, `jll-grocery-report-2025`. More sources may follow, so steps stay open.
 
 **Files:**
 - Create: `wiki/sources/<slug>.md` (one per source you added)
@@ -256,6 +278,8 @@ Expected: the first command lists no files (every source page has its tier); the
 ---
 
 ### Task 5: Build concept pages and update synthesis
+
+**Status:** Not started.
 
 **Files:**
 - Create: `wiki/concepts/site-selection.md`, `same-store-sales.md`, `sales-per-square-foot.md`, `category-mix.md`, `store-maturity.md`, `cannibalization.md`, `specialty-grocery-landscape.md`
@@ -288,6 +312,8 @@ Expected: no output from either (every page is indexed and every concept page ci
 
 ### Task 6: Write the interview guide
 
+**Status:** Not started.
+
 **Files:**
 - Create: `wiki/synthesis/interview-guide.md`
 - Modify: `wiki/index.md`, `wiki/log.md`
@@ -318,6 +344,8 @@ Expected: at least 1 must-ask and at least as many `[[` links as questions.
 ---
 
 ### Task 7: Lint and definition-of-ready check
+
+**Status:** Not started.
 
 **Files:**
 - Modify: any page with a lint finding; `wiki/log.md`
